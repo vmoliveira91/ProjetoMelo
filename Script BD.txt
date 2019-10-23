@@ -1,0 +1,33 @@
+create table Empregador ( CNPJ varchar(15) primary key,
+						  Endereço varchar(100) not null,
+						  Nome_Fantasia varchar(50) not null,
+						  Email varchar(20) not null,
+						  Telefone varchar(20) not null,
+						  Razao_Social varchar(100) not null);
+create table Funcao ( FuncaoId int primary key,
+					  Nome varchar(40) not null,
+					  Sigla varchar(2) not null);
+create table Habilidades ( HabilidadeId int primary key,
+						   HabilidadeNome varchar(50) not null);
+create table Experiencias ( ExperienciaId int primary key,
+						   ExperienciaNome varchar(50) not null);
+create table Vaga ( VagaId int primary key,
+				    Descricao varchar(50) not null,
+					Salario float not null,
+					Beneficios varchar(50) not null,
+					CNPJ varchar(15) references Empregador(CNPJ),
+					FuncaoId int references Funcao(FuncaoId),
+					HabilidadesId int references Habilidades(HabilidadeId),
+					ExperienciaId int references Experiencias(ExperienciaId));
+create table Trabalhador ( CPF varchar(12) primary key,
+						   Rg varchar(9) not null,
+						   Nome varchar(30) not null,
+						   Endereco varchar(40) not null,
+						   Telefone varchar(20) not null,
+						   Nacionalidade varchar(20) not null,
+						   Email varchar(30) not null,
+						   Sexo varchar(10) not null,
+						   Data_nasc date not null,
+						   VagaId int references Vaga(VagaId),
+						   HabilidadesId int references Habilidades(HabilidadeId),
+						   ExperienciasId int references Experiencias(ExperienciaId));
