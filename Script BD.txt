@@ -31,3 +31,5 @@ create table Trabalhador ( CPF varchar(12) primary key,
 						   VagaId int references Vaga(VagaId),
 						   HabilidadesId int references Habilidades(HabilidadeId),
 						   ExperienciasId int references Experiencias(ExperienciaId));
+
+santhi gay
