@@ -1,25 +1,55 @@
-create table Empregador ( CNPJ varchar(15) primary key,
+create table Empregador ( ID int identity(1,1) primary key,
+						  CNPJ varchar(15) not null,
 						  Endereço varchar(100) not null,
 						  Nome_Fantasia varchar(50) not null,
 						  Email varchar(20) not null,
 						  Telefone varchar(20) not null,
-						  Razao_Social varchar(100) not null);
-create table Funcao ( FuncaoId int primary key,
+						  Razao_Social varchar(100) not null,
+						  DataCadastro date not null,
+						  DataValidade date not null,
+						  IsActive bit not null);
+
+create table Funcao ( ID int identity(1,1) primary key,
 					  Nome varchar(40) not null,
 					  Sigla varchar(2) not null);
-create table Habilidades ( HabilidadeId int primary key,
+
+create table Habilidades ( ID int identity(1,1) primary key,
 						   HabilidadeNome varchar(50) not null);
-create table Experiencias ( ExperienciaId int primary key,
-						   ExperienciaNome varchar(50) not null);
-create table Vaga ( VagaId int primary key,
+
+create table Experiencias ( ID int identity primary key,
+						    ExperienciaNome varchar(50) not null);
+
+create table Tempo ( Id int identity(1,1) primary key,
+					 Valor varchar(10) not null);
+
+create table Nivel ( Id int identity(1,1) primary key,
+					 Valor varchar(10) not null);
+
+create table Situacao ( Id int identity(1,1) primary key,
+					    Valor varchar(10) not null);
+
+create table Beneficio ( ID int identity(1,1) primary key,
+						 PlanoSaude bit not null,
+						 PlanoOdonto bit not null,
+						 ValeRef bit not null,
+						 ValeAli bit not null,
+						 Passagem bit not null,
+						 Gasolina bit not null);
+
+create table Vaga ( ID int identity(1,1) primary key,
 				    Descricao varchar(50) not null,
 					Salario float not null,
-					Beneficios varchar(50) not null,
-					CNPJ varchar(15) references Empregador(CNPJ),
-					FuncaoId int references Funcao(FuncaoId),
-					HabilidadesId int references Habilidades(HabilidadeId),
-					ExperienciaId int references Experiencias(ExperienciaId));
-create table Trabalhador ( CPF varchar(12) primary key,
+					DataCadastro date not null,
+					DataValidade date not null,
+					IsActive bit not null,
+					BeneficioId int references Beneficio(ID),
+					EmpregadorId int references Empregador(ID),
+					FuncaoId int references Funcao(ID),
+					HabilidadesId int references Habilidades(ID),
+					ExperienciaId int references Experiencias(ID));
+
+create table Trabalhador ( ID int identity (1,1)primary key,
+						   CPF varchar(12) not null,
 						   Rg varchar(9) not null,
 						   Nome varchar(30) not null,
 						   Endereco varchar(40) not null,
@@ -28,8 +58,29 @@ create table Trabalhador ( CPF varchar(12) primary key,
 						   Email varchar(30) not null,
 						   Sexo varchar(10) not null,
 						   Data_nasc date not null,
-						   VagaId int references Vaga(VagaId),
-						   HabilidadesId int references Habilidades(HabilidadeId),
-						   ExperienciasId int references Experiencias(ExperienciaId));
+						   DataCadastro date not null,
+						   DataValidade date not null,
+						   IsActive bit not null,
+						   VagaId int references Vaga(Id),
+						   HabilidadesId int references Habilidades(ID),
+						   ExperienciasId int references Experiencias(ID));
 
-santhi gay
+create table VagaExperiencia ( VagaId int references Vaga(id),
+							   ExperienciaId int references Experiencias(id),
+							   NivelId int references Nivel(id),
+							   TempoId int references Tempo(id));
+
+create table VagaHabilidade ( VagaId int references Vaga(id),
+							  HabilidadeId int references Habilidades(id),
+						      NivelId int references Nivel(id),
+					  	      TempoId int references Tempo(id));
+    
+create table Inscricao ( VagaId int references Vaga(Id),
+						 TrabalhadorId int references Trabalhador(Id),
+						 SituacaoID int references Situacao(id),
+						 DataInscricao date not null);
+
+create table VagaBeneficio ( VagaID int references Vaga(id),
+							 BeneficioId int references Beneficio(id),
+							 Valor decimal(18,0));
+							
