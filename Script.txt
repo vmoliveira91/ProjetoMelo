@@ -1,0 +1,121 @@
+create table EMPREGADOR (
+    ID int identity(1,1) primary key,
+    CNPJ
+    NOME_FANTASIA
+    RAZAO_SOCIAL
+    ENDERECO
+    EMAIL
+    TELEFONE
+    DATA_CADASTRO
+    DATA_VALIDADE
+    ATIVO
+)
+
+create table FUNCAO (
+    ID
+    SIGLA
+    NOME
+)
+
+create table BENEFICIO (
+    ID
+    LABEL
+)
+
+create table VAGA (
+    ID
+    DESCRICAO
+    SALARIO
+    DATA_CADASTRO
+    DATA_VALIDADE
+    FUNCAO_ID
+    EMPREGADOR_ID
+    ATIVO
+    STATUS * VER SE É NECESSÁRIO, ACREDITO QUE NÃO SEJA NECESSÁRIO. (JOIN)
+)
+
+create table VAGA_BENEFICIO (
+    ID
+    VAGA_ID
+    BENEFICIO_ID
+    VALOR
+)
+
+create table SITUACAO (
+    ID
+    LABEL
+)
+
+create table TEMPO (
+    ID
+    LABEL
+)
+
+create table NIVEL (
+    ID
+    LABEL
+)
+
+create table TRABALHADOR (
+    ID
+    CPF
+    RG
+    NOME
+    SEXO
+    ENDERECO
+    TELEFONE
+    EMAIL
+    NACIONALIDADE
+    DATA_NASCIMENTO
+    DATA_CADASTRO
+    DATA_VALIDADE
+    ATIVO
+    STATUS
+)
+
+create table EXPERIENCIA (
+    ID
+    LABEL
+)
+
+create table HABILIDADE (
+    ID
+    LABEL
+)
+
+create table VAGA_TRABALHADOR (
+    ID
+    DATA_INSCRICAO
+    ATIVO
+    VAGA_ID
+    TRABALHADOR_ID
+    SITUACAO_ID
+)
+
+create table VAGA_EXPERIENCIA (
+    ID
+    EXPERIENCIA_ID
+    VAGA_ID
+    TEMPO_ID
+)
+
+create table VAGA_HABILIDADE (
+    ID
+    HABILIDADE_ID
+    VAGA_ID
+    NIVEL_ID
+)
+
+create table TRABALHADOR_EXPERIENCIA (
+    ID
+    EXPERIENCIA_ID
+    TRABALHADOR_ID
+    TEMPO_ID
+)
+
+create table TRABALHADOR_HABILIDADE (
+    ID
+    HABILIDADE_ID
+    TRABALHADOR_ID
+    NIVEL_ID
+)
