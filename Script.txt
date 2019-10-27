@@ -1,121 +1,139 @@
 create table EMPREGADOR (
     ID int identity(1,1) primary key,
-    CNPJ
-    NOME_FANTASIA
-    RAZAO_SOCIAL
-    ENDERECO
-    EMAIL
-    TELEFONE
-    DATA_CADASTRO
-    DATA_VALIDADE
-    ATIVO
-)
+    CNPJ text not null,
+    NOME_FANTASIA text not null,
+    RAZAO_SOCIAL text not null,
+    ENDERECO text not null,
+    EMAIL text not null,
+    TELEFONE text not null,
+    DATA_CADASTRO date not null,
+    DATA_VALIDADE date not null,
+    ATIVO int not null
+);
 
 create table FUNCAO (
-    ID
-    SIGLA
-    NOME
-)
+    ID int identity(1,1) primary key,
+    SIGLA text not null,
+    NOME text
+);
 
 create table BENEFICIO (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table VAGA (
-    ID
-    DESCRICAO
-    SALARIO
-    DATA_CADASTRO
-    DATA_VALIDADE
-    FUNCAO_ID
-    EMPREGADOR_ID
-    ATIVO
-    STATUS * VER SE É NECESSÁRIO, ACREDITO QUE NÃO SEJA NECESSÁRIO. (JOIN)
-)
+    ID int identity (1,1) primary key,
+    DESCRICAO text not null,
+    SALARIO real not null,
+    DATA_CADASTRO date not null,
+    DATA_VALIDADE date not null,
+    FUNCAO_ID int not null,
+    EMPREGADOR_ID int not null,
+    ATIVO int not null,
+    foreign key(FUNCAO_ID) references FUNCAO(ID),
+    foreign key(EMPREGADOR_ID) references EMPREGADOR(ID)    
+);
 
 create table VAGA_BENEFICIO (
-    ID
-    VAGA_ID
-    BENEFICIO_ID
-    VALOR
-)
+    ID int identity(1,1) primary key,
+    VAGA_ID int not null,
+    BENEFICIO_ID int not null,
+    VALOR real not null,
+    foreign key(VAGA_ID) references VAGA(ID),
+    foreign key(BENEFICIO_ID) references BENEFICIO(ID)
+);
 
 create table SITUACAO (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table TEMPO (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table NIVEL (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table TRABALHADOR (
-    ID
-    CPF
-    RG
-    NOME
-    SEXO
-    ENDERECO
-    TELEFONE
-    EMAIL
-    NACIONALIDADE
-    DATA_NASCIMENTO
-    DATA_CADASTRO
-    DATA_VALIDADE
-    ATIVO
-    STATUS
-)
+    ID int identity(1,1) primary key,
+    CPF text not null,
+    RG text not null,
+    NOME text not null,
+    SEXO text not null,
+    ENDERECO text not null,
+    TELEFONE text not null,
+    EMAIL text not null,
+    NACIONALIDADE text not null,
+    DATA_NASCIMENTO date not null,
+    DATA_CADASTRO date not null,
+    DATA_VALIDADE date not null,
+    ATIVO int not null,
+    STATUS text not null
+);
 
 create table EXPERIENCIA (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table HABILIDADE (
-    ID
-    LABEL
-)
+    ID int identity(1,1) primary key,
+    LABEL text not null
+);
 
 create table VAGA_TRABALHADOR (
-    ID
-    DATA_INSCRICAO
-    ATIVO
-    VAGA_ID
-    TRABALHADOR_ID
-    SITUACAO_ID
-)
+    ID int identity(1,1) primary key,
+    DATA_INSCRICAO date not null,
+    VAGA_ID int not null,
+    TRABALHADOR_ID int not null,
+    SITUACAO_ID int not null,
+    ATIVO int not null,
+    foreign key(VAGA_ID) references VAGA(ID),
+    foreign key(TRABALHADOR_ID) references TRABALHADOR(ID),
+    foreign key(SITUACAO_ID) references SITUACAO(ID)
+);
 
 create table VAGA_EXPERIENCIA (
-    ID
-    EXPERIENCIA_ID
-    VAGA_ID
-    TEMPO_ID
-)
+    ID int identity(1,1) primary key,
+    EXPERIENCIA_ID int not null,
+    VAGA_ID int not null,
+    TEMPO_ID int not null,
+    foreign key(EXPERIENCIA_ID) references EXPERIENCIA(ID),
+    foreign key(VAGA_ID) references VAGA(ID),
+    foreign key(TEMPO_ID) references TEMPO(ID)
+);
 
 create table VAGA_HABILIDADE (
-    ID
-    HABILIDADE_ID
-    VAGA_ID
-    NIVEL_ID
-)
+    ID int identity(1,1) primary key,
+    HABILIDADE_ID int not null,
+    VAGA_ID int not null,
+    NIVEL_ID int not null,
+    foreign key(HABILIDADE_ID) references HABILIDADE(ID),
+    foreign key(VAGA_ID) references VAGA(ID),
+    foreign key(NIVEL_ID) references NIVEL(ID)
+);
 
 create table TRABALHADOR_EXPERIENCIA (
-    ID
-    EXPERIENCIA_ID
-    TRABALHADOR_ID
-    TEMPO_ID
-)
+    ID int identity(1,1) primary key,
+    EXPERIENCIA_ID int not null,
+    TRABALHADOR_ID int not null,
+    TEMPO_ID int not null,
+    foreign key(EXPERIENCIA_ID) references EXPERIENCIA(ID),
+    foreign key(TRABALHADOR_ID) references TRABALHADOR(ID),
+    foreign key(TEMPO_ID) references TEMPO(ID)
+);
 
 create table TRABALHADOR_HABILIDADE (
-    ID
-    HABILIDADE_ID
-    TRABALHADOR_ID
-    NIVEL_ID
-)
+    ID int identity(1,1) primary key,
+    HABILIDADE_ID int not null,
+    TRABALHADOR_ID int not null,
+    NIVEL_ID int not null,
+    foreign key(HABILIDADE_ID) references HABILIDADE(ID),
+    foreign key(TRABALHADOR_ID) references TRABALHADOR(ID),
+    foreign key(NIVEL_ID) references NIVEL(ID)
+);
