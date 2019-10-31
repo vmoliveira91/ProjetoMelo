@@ -1,4 +1,5 @@
 ﻿using System;
+using VagasPE.Biblioteca.ConexaoBD;
 
 namespace VagasPE
 {
@@ -7,6 +8,10 @@ namespace VagasPE
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Conexao conexao = new Conexao();
+            conexao.abrirConexao();
+            conexao.select();
+            conexao.fecharConexao();
         }
     }
 }

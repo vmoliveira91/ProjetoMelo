@@ -1,0 +1,11 @@
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\bin\Debug\netcoreapp2.1\VagasPE.deps.json
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\bin\Debug\netcoreapp2.1\VagasPE.runtimeconfig.json
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\bin\Debug\netcoreapp2.1\VagasPE.runtimeconfig.dev.json
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\bin\Debug\netcoreapp2.1\VagasPE.dll
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.csprojAssemblyReference.cache
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.csproj.CoreCompileInputs.cache
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.AssemblyInfoInputs.cache
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.AssemblyInfo.cs
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\bin\Debug\netcoreapp2.1\VagasPE.pdb
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.dll
+C:\Users\VITOR.OLIVEIRA\Documents\ProjetoMelo\VagasPE\VagasPE\obj\Debug\netcoreapp2.1\VagasPE.pdb
