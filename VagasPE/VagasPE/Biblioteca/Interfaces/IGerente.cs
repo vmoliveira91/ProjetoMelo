@@ -7,23 +7,23 @@ namespace VagasPE.Biblioteca.Interfaces {
     public interface IGerente {
         void CadastrarHabilidade(Habilidade habilidade);
         void AtualizarHabilidade(Habilidade habilidade);
-        void RemoverHabilidade(int habilidadeId);
+        void DesativarHabilidade(int habilidadeId);
         List<Habilidade> ListarHabilidades(string nome);
         void CadastrarExperiencia(Experiencia experiencia);
         void AtualizarExperiencia(Experiencia experiencia);
-        void RemoverExperiencia(int experienciaId);
+        void DesativarExperiencia(int experienciaId);
         List<Experiencia> ListarExperiencias(string nome);
         void CadastrarNivel(string nivel);
         void AtualizarNivel(string nivel);
-        void RemoverNivel(int nivelId);
+        void DesativarNivel(int nivelId);
         List<string> ListarNiveis(string nome);
         void CadastrarTempo(string tempo);
         void AtualizarTempo(string tempo);
-        void RemoverTempo(int tempoId);
+        void DesativarTempo(int tempoId);
         List<string> ListarTempos(string nome);
         void CadastrarSituacao(string nome);
         void AtualizarSituacao(string situacao);
-        void RemoverSituacao(int situacaoId);
+        void DesativarSituacao(int situacaoId);
         List<string> ListarSituacoes(string nome);
     }
 }

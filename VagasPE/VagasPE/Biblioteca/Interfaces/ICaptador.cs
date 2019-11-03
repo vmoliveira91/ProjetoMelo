@@ -11,14 +11,14 @@ namespace VagasPE.Biblioteca.Interfaces {
         List<Empregador> ListarEmpregadores(string nome);
         void CadastrarFuncao(Funcao funcao);
         void AtualizarFuncao(Funcao funcao);
-        void RemoverFuncao(int funcaoId);
+        void DesativarFuncao(int funcaoId);
         List<Funcao> ListarFuncoes(string nome);
         void CadastrarVaga(Vaga vaga);
         void AtualizarVaga(Vaga vaga);
         void DesativarVaga(int vagaId);
         void CadastrarBeneficio(Beneficio beneficio);
         void AtualizarBeneficio(Beneficio beneficio);
-        void RemoverBeneficio(int beneficioId);
+        void DesativarBeneficio(int beneficioId);
         List<Beneficio> ListarBeneficios(string nome);
     }
 }
