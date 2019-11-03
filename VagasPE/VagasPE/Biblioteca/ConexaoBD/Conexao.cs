@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SQLite;
 
 namespace VagasPE.Biblioteca.ConexaoBD {
-    class Conexao {
+    public class Conexao {
         private SQLiteConnection conn;
 
         public Conexao() {

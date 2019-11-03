@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace VagasPE.Biblioteca.ClassesBasicas {
-    class Inscricao {
+    public class Inscricao {
         private int id;
         private DateTime dataInscricao;
         private Vaga vaga;
